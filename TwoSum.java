@@ -5,3 +5,9 @@
 	 Because nums[0] + nums[1] = 2 + 7 = 9,
 	 return [0, 1].
 */
+
+	 class TwoSum{
+	 	public static void main(String[] args) {
+	 		
+	 	}
+	 }
