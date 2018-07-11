@@ -1,3 +1,6 @@
+package firstPractice;
+
+import java.util.Arrays;
 
 /**
  * 
@@ -7,34 +10,48 @@
  *         in A and B are m and n respectively.
  *
  */
-public class MergeSortArray {
+public class MergeSort {
 	public int[] mergeSort(int[] a, int[] b) {
-		int i = a.length - 1;
-		int j = b.length - 1;
-		int[] c = new int[i+j+1];
+		int i = 0;
+		int j = 0;
+		int[] c = new int[a.length + b.length];
+		int k = 0;
 
-		for (int k = a.length + b.length - 1; k >= 0; k--) {
-			if (a[i] > b[j] || j<=0) {
+		while (i<a.length && j< b.length ) {
+			if (a[i] < b[j]) {
 				c[k] = a[i];
-				i--;
+				k++;
+				i++;
+
 			} else {
-				if (a[i] < b[j] || i<=0) {
+				if (a[i] > b[j]) {
 					c[k] = b[j];
-					j--;
+					k++;
+					j++;
 				}
 			}
 		}
+		//copy remaining numbers
+		while(i<a.length) {
+			c[k] = a[i];
+			k++;
+			i++;
+		}
 		
+		if(j<b.length) {
+			System.arraycopy(b, j, c, k, b.length-j);
+		}
+			
 		return c;
 	}
 
 	public static void main(String[] args) {
-		MergeSortArray m = new MergeSortArray();
-		int[] a = { 1, 3, 5, 7 };
+		MergeSort m = new MergeSort();
+		int[] a = { 1, 3, 5, 7, 9, 10, 11 };
 		int[] b = { 2, 4, 6, 8 };
-		
 		int[] c = m.mergeSort(a, b);
-		System.out.println(c);
-		  
+		System.out.println(Arrays.toString(c));
+
 	}
+
 }
