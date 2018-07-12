@@ -1,4 +1,3 @@
-
 /**
  * 
  * @author florafeng
@@ -16,26 +15,26 @@ public class ShortestWordDistance {
 		for(int i =0; i<list.length;i++){
 			if(list[i].equals(a)){
 				p1 = i;
-				if(p1!=0) {
+				if(p2!=-1) {
 					min = Math.min(min,p1-p2);
 				}
 			}else if(list[i].equals(b)){
 				p2 = i;
-				if(p2!=0) {
+				if(p1!=-1) {
 					min = Math.min(min, p2-p1);
 				}
 			}
-			
+
 		}
 		return min;
 	}
 	public static void main(String[] args) {
 		ShortestWordDistance s = new ShortestWordDistance();
-		
-		
+
+
 		String[] list = {"practice", "makes", "perfect", "coding", "makes"};
-		String a = "perfect";
-		String b = "practice";
+		String a = "coding";
+		String b = "makes";
 		int result = s.shortestWordDistance(list, a, b);
 		System.out.println(result);
 	}
